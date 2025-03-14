@@ -23,4 +23,6 @@
 - `dotenv` for managing environment variables
 - helmet & CORS for security
 
+## UML Diagram
+
 ![UML Diagram](uml.svg)
