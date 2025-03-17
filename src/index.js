@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000
 const userRoutes = require("./routes/users")
+
+//Connect to DB
+const connectDB = require("./utils/db")
 
 // MIDDLEWARE
 app.use(express.json())
-
-app.use("/api/users", userRoutes)
 
 // cors middleware
 app.use((req, res, next) => {
@@ -18,10 +19,10 @@ app.use((req, res, next) => {
   next()
  })
 
-app.get("/", (req, res) => {
-  res.send("Welcome to my API ! e-commerce backed 🤳")
- });
+connectDB()
+
+app.use("/api/users", userRoutes)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
-});
+})
