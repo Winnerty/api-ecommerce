@@ -1,8 +1,9 @@
 const express = require("express")
 const router = express.Router()
 const { hashPassword } = require("../middleware/passencrypt")
+const { userLogIn, userSignUp } = require("../controllers/userControllers")
 
-router.get("/", (req, res) => {
+router.get("/", userLogIn => {
     res.send(req)
 })
 
