@@ -27,7 +27,8 @@ const userSchema = new mongoose.Schema({
     inventory: {
         type: Array,
         required: false,
-    }
-});
+    }},
+    { timeStamp: true }
+);
 
-module.exports = mongoose.model("userSchema", userSchema);
+module.exports = mongoose.model("userSchema", userSchema)
