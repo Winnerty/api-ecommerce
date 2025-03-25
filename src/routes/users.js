@@ -5,8 +5,8 @@ const { userLogIn, userSignUp } = require("../controllers/userControllers")
 const { verifyToken } = require("../middleware/auth")
 const upload = require("../config/multerConfig");
 
-router.get("/", userLogIn => {
-    res.send(req)
+router.get("/", (req, res) => {
+    res.send("you've reached users page");
 })
 
 router.post("/login", userLogIn)
