@@ -1,8 +1,10 @@
 const express = require("express")
 const router = express.Router()
+const verifyToken = require("../middleware/auth")
+const invoiceController = require("../controllers/invoiceControllers")
 
-router.get("/", (req, res) => {
-    res.send("you've reached invoices page");
-});
+router.get("/", invoiceController.getAllInvoices)
+router.get("/:id", invoiceController.getInvoiceById)
+router.post("/", verifyToken, invoiceController.createInvoice)
 
 module.exports = router
