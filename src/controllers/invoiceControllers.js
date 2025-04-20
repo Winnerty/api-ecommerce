@@ -1,5 +1,5 @@
-const Product = require("../models/productModels");
-const Invoice = require("../models/invoiceModels");
+const Product = require("../models/productModels")
+const Invoice = require("../models/invoiceModels")
 
 exports.getAllInvoices = async (req, res) => {
     try {

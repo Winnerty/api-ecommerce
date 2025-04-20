@@ -1,10 +1,10 @@
 const express = require("express")
 const router = express.Router()
-const verifyToken = require("../middleware/auth")
-const productController = require("../controllers/productControllers")
+const { verifyToken } = require("../middleware/auth")
+const { getAllProducts, getProductById, createProduct } = require("../controllers/productControllers")
 
-router.get("/", productController.getAllProducts);
-router.get("/:id", productController.getProductById);
-router.post("/", verifyToken, productController.createProduct);
+router.get("/", getAllProducts)
+router.get("/:id", getProductById)
+router.post("/", verifyToken, createProduct)
 
 module.exports = router
