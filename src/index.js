@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000
 const userRoutes = require("./routes/users")
+const productRoutes = require("./routes/products")
+const invoiceRoutes = require("./routes/invoices")
 const path = require("path")
 
 //Connect to DB
@@ -23,6 +25,8 @@ app.use((req, res, next) => {
 connectDB()
 
 app.use("/api/users", userRoutes)
+app.use("/api/products", productRoutes)
+app.use("/api/invoices", invoiceRoutes)
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
